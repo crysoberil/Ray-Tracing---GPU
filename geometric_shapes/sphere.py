@@ -61,5 +61,5 @@ class Sphere(shape.Shape):
         intersected = 1 - no_intersection_mask
         inf_tensor = device_control.get_device_float32_array([t1.shape[0]], 1e30)
         t = torch.min(torch.where(t1 < 0, inf_tensor, t1), torch.where(t2 < 0, inf_tensor, t2))
-        t = torch.where(intersected, t, device_control.get_device_float32_array([t.shape[0]], 1e-10))
+        t = torch.where(intersected, t, device_control.get_device_float32_array([t.shape[0]], -1e10))
         return t

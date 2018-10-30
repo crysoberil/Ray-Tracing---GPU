@@ -5,7 +5,7 @@ from geometric_primitives import vector
 from ray_tracing import trace_rays
 from main_package import display_utils
 from main_package import camera as camera_module
-from geometric_shapes import checkerboard, sphere
+from geometric_shapes import checkerboard, sphere, triangle
 
 
 def parse_dsl_file(file_path):
@@ -16,6 +16,8 @@ def parse_dsl_file(file_path):
             return checkerboard.CheckerBoard.parse_from_description(description)
         if object_type == "SPHERE":
             return sphere.Sphere.parse_from_description(description)
+        if object_type == "TRIANGLE":
+            return triangle.Triangle.parse_from_description(description)
 
     with open(file_path, 'r') as f_in:
         shapes = []

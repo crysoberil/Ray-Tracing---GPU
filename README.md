@@ -12,6 +12,7 @@ The project requires:
 
 - python3
 - PyTorch 
+- numpy
 
 How to use
 ------------
